@@ -87,37 +87,37 @@ export default function Cart({ onCheckout }: CartProps) {
 
   return (
     <div className="bg-white rounded-lg shadow-md">
-      <div className="p-6 border-b">
-        <h2 className="text-2xl font-bold text-gray-800 flex items-center">
-          <ShoppingCart className="w-6 h-6 mr-2" />
+      <div className="p-4 sm:p-6 border-b">
+        <h2 className="text-xl sm:text-2xl font-bold text-gray-800 flex items-center">
+          <ShoppingCart className="w-5 h-5 sm:w-6 sm:h-6 mr-2" />
           Shopping Cart ({cartItems.length} items)
         </h2>
       </div>
 
       <div className="divide-y">
         {cartItems.map((item) => (
-          <div key={item.id} className="p-6 flex gap-4">
+          <div key={item.id} className="p-4 sm:p-6 flex flex-col sm:flex-row gap-4">
             {item.products?.images[0] && (
               <img
                 src={item.products.images[0]}
                 alt={item.products.title}
-                className="w-24 h-24 object-cover rounded-lg"
+                className="w-full sm:w-24 h-48 sm:h-24 object-cover rounded-lg"
               />
             )}
 
             <div className="flex-1">
-              <h3 className="text-lg font-semibold text-gray-800 mb-1">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-1">
                 {item.products?.title}
               </h3>
-              <p className="text-sm text-gray-600 mb-2 line-clamp-2">
+              <p className="text-xs sm:text-sm text-gray-600 mb-2 line-clamp-2">
                 {item.products?.description}
               </p>
-              <p className="text-lg font-bold text-blue-600">
-                ${item.products?.price}
+              <p className="text-base sm:text-lg font-bold text-blue-600">
+                ₹{item.products?.price}
               </p>
             </div>
 
-            <div className="flex flex-col items-end justify-between">
+            <div className="flex sm:flex-col items-center sm:items-end justify-between">
               <button
                 onClick={() => removeItem(item.id)}
                 className="text-red-600 hover:text-red-800 transition"
@@ -145,19 +145,19 @@ export default function Cart({ onCheckout }: CartProps) {
                 </button>
               </div>
 
-              <p className="text-lg font-bold text-gray-900">
-                ${((item.products?.price || 0) * item.quantity).toFixed(2)}
+              <p className="text-base sm:text-lg font-bold text-gray-900">
+                ₹{((item.products?.price || 0) * item.quantity).toFixed(2)}
               </p>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="p-6 border-t bg-gray-50">
+      <div className="p-4 sm:p-6 border-t bg-gray-50">
         <div className="flex justify-between items-center mb-4">
-          <span className="text-xl font-semibold text-gray-800">Total:</span>
-          <span className="text-3xl font-bold text-blue-600">
-            ${total.toFixed(2)}
+          <span className="text-lg sm:text-xl font-semibold text-gray-800">Total:</span>
+          <span className="text-2xl sm:text-3xl font-bold text-blue-600">
+            ₹{total.toFixed(2)}
           </span>
         </div>
         <button

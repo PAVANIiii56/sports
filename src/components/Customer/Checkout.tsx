@@ -274,7 +274,7 @@ export default function Checkout({ onBack, onSuccess }: CheckoutProps) {
                     {item.products?.title} x{item.quantity}
                   </span>
                   <span className="font-medium">
-                    ${((item.products?.price || 0) * item.quantity).toFixed(2)}
+                    ₹{((item.products?.price || 0) * item.quantity).toFixed(2)}
                   </span>
                 </div>
               ))}
@@ -283,7 +283,7 @@ export default function Checkout({ onBack, onSuccess }: CheckoutProps) {
             <div className="border-t pt-4">
               <div className="flex justify-between items-center mb-2">
                 <span className="text-gray-600">Subtotal:</span>
-                <span className="font-medium">${total.toFixed(2)}</span>
+                <span className="font-medium">₹{total.toFixed(2)}</span>
               </div>
               <div className="flex justify-between items-center mb-2">
                 <span className="text-gray-600">Shipping:</span>
@@ -291,7 +291,7 @@ export default function Checkout({ onBack, onSuccess }: CheckoutProps) {
               </div>
               <div className="flex justify-between items-center text-xl font-bold border-t pt-4">
                 <span>Total:</span>
-                <span className="text-blue-600">${total.toFixed(2)}</span>
+                <span className="text-blue-600">₹{total.toFixed(2)}</span>
               </div>
             </div>
           </div>

@@ -122,7 +122,7 @@ export default function Wishlist() {
                 {item.products?.description}
               </p>
               <p className="text-xl font-bold text-blue-600 mb-4">
-                ${item.products?.price}
+                ₹{item.products?.price}
               </p>
 
               <div className="flex gap-2">

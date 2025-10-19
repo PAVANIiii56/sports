@@ -105,7 +105,7 @@ export default function Orders() {
                       month: 'long',
                       day: 'numeric'
                     })}</p>
-                    <p><strong>Total:</strong> ${order.total_amount}</p>
+                    <p><strong>Total:</strong> ₹{order.total_amount}</p>
                     <p><strong>Payment Method:</strong> {order.payment_method.toUpperCase()}</p>
                   </div>
                 </div>
@@ -154,11 +154,11 @@ export default function Orders() {
                           <div className="flex-1">
                             <p className="font-medium text-gray-800">{item.products?.title}</p>
                             <p className="text-sm text-gray-600">
-                              Quantity: {item.quantity} × ${item.price}
+                              Quantity: {item.quantity} × ₹{item.price}
                             </p>
                           </div>
                           <p className="font-semibold text-gray-900">
-                            ${(item.quantity * item.price).toFixed(2)}
+                            ₹{(item.quantity * item.price).toFixed(2)}
                           </p>
                         </div>
                       ))}
@@ -173,7 +173,7 @@ export default function Orders() {
 
                   <div className="flex justify-between items-center pt-4 border-t">
                     <span className="font-semibold text-gray-800">Order Total:</span>
-                    <span className="text-2xl font-bold text-blue-600">${order.total_amount}</span>
+                    <span className="text-2xl font-bold text-blue-600">₹{order.total_amount}</span>
                   </div>
                 </div>
               )}

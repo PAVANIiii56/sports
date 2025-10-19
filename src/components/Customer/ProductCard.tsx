@@ -18,7 +18,7 @@ export default function ProductCard({
 }: ProductCardProps) {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition group">
-      <div className="relative overflow-hidden bg-gray-100 h-64">
+      <div className="relative overflow-hidden bg-gray-100 h-48 sm:h-56 md:h-64">
         {product.images[0] ? (
           <img
             src={product.images[0]}
@@ -46,22 +46,22 @@ export default function ProductCard({
         )}
       </div>
 
-      <div className="p-4">
+      <div className="p-3 sm:p-4">
         <h3
-          className="text-lg font-semibold text-gray-800 mb-2 cursor-pointer hover:text-blue-600"
+          className="text-base sm:text-lg font-semibold text-gray-800 mb-2 cursor-pointer hover:text-blue-600 line-clamp-2"
           onClick={() => onViewDetails(product)}
         >
           {product.title}
         </h3>
-        <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+        <p className="text-xs sm:text-sm text-gray-600 mb-3 line-clamp-2">
           {product.description}
         </p>
 
-        <div className="flex items-center justify-between mb-3">
-          <span className="text-2xl font-bold text-gray-900">
-            ${product.price}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-1 sm:gap-0">
+          <span className="text-xl sm:text-2xl font-bold text-gray-900">
+            ₹{product.price}
           </span>
-          <span className="text-sm text-gray-500">
+          <span className="text-xs sm:text-sm text-gray-500">
             {product.stock > 0 ? `${product.stock} in stock` : 'Out of stock'}
           </span>
         </div>
@@ -69,9 +69,9 @@ export default function ProductCard({
         <button
           onClick={() => onAddToCart(product)}
           disabled={product.stock === 0}
-          className="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition flex items-center justify-center disabled:bg-gray-300 disabled:cursor-not-allowed"
+          className="w-full py-2 sm:py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition flex items-center justify-center disabled:bg-gray-300 disabled:cursor-not-allowed text-sm sm:text-base"
         >
-          <ShoppingCart className="w-5 h-5 mr-2" />
+          <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" />
           Add to Cart
         </button>
       </div>

@@ -64,7 +64,7 @@ export default function ProductDetails({
                 </h1>
                 <div className="flex items-center gap-4 mb-4">
                   <span className="text-4xl font-bold text-blue-600">
-                    ${product.price}
+                    ₹{product.price}
                   </span>
                   <span className={`px-3 py-1 rounded-full text-sm font-medium ${
                     product.stock > 0 ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
