@@ -6,7 +6,6 @@ export default function SignUp({ onToggle }: { onToggle: () => void }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
-  const [isAdmin, setIsAdmin] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const { signUp } = useAuth();
@@ -17,7 +16,7 @@ export default function SignUp({ onToggle }: { onToggle: () => void }) {
     setLoading(true);
 
     try {
-      await signUp(email, password, fullName, isAdmin ? 'admin' : 'customer');
+      await signUp(email, password, fullName);
     } catch (err: any) {
       setError(err.message || 'Failed to sign up');
     } finally {
@@ -80,19 +79,6 @@ export default function SignUp({ onToggle }: { onToggle: () => void }) {
             minLength={6}
             className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
           />
-        </div>
-
-        <div className="flex items-center">
-          <input
-            id="isAdmin"
-            type="checkbox"
-            checked={isAdmin}
-            onChange={(e) => setIsAdmin(e.target.checked)}
-            className="w-4 h-4 text-green-600 border-gray-300 rounded focus:ring-green-500"
-          />
-          <label htmlFor="isAdmin" className="ml-2 text-sm text-gray-700">
-            Register as Admin
-          </label>
         </div>
 
         <button
